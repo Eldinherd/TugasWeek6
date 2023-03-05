@@ -15,13 +15,13 @@ public class ItemService {
         public Response get(){
             return Response.status(Response.Status.OK).entity(Item.findAll().list()).build();
         }
-        public Response get(@PathParam("id") Long id){
-            Optional<Item> optionalItem = Item.findByIdOptional(id);
-            if (optionalItem.isEmpty()) {
-                return Response.status(Response.Status.BAD_REQUEST)
-                        .entity(Map.of("message", "Can't find Item"))
-                        .build();
-            }
+        public Response get(@PathParam("id") Long id) {
+        Optional<Item> optionalItem = Item.findByIdOptional(id);
+        if (optionalItem.isEmpty()) {
+            return Response.status(Response.Status.BAD_REQUEST)
+                    .entity(Map.of("message", "Can't find Item"))
+                    .build();
+        }
             Item item = optionalItem.get();
 
             Map<String, Object> response = new HashMap<>();

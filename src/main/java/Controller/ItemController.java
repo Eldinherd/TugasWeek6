@@ -49,7 +49,7 @@ public class ItemController {
 
 
     @DELETE
-    @Path("/{id}") @Transactional
+    @Path("/{id}")
     public Response delete(@PathParam("id") Long id){
 
         return itemService.delete(id);
