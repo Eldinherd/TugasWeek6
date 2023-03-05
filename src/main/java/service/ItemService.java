@@ -4,6 +4,7 @@ import id.kawahEdukasi.model.Item;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
+import javax.ws.rs.GET;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 import java.util.HashMap;
@@ -13,8 +14,10 @@ import java.util.Optional;
 @ApplicationScoped
 public class ItemService {
         public Response get(){
+
             return Response.status(Response.Status.OK).entity(Item.findAll().list()).build();
         }
+
         public Response get(@PathParam("id") Long id) {
         Optional<Item> optionalItem = Item.findByIdOptional(id);
         if (optionalItem.isEmpty()) {

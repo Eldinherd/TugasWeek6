@@ -24,12 +24,11 @@ public class ItemController {
     public Response get(){
         return itemService.get();
     }
-    @Path("/{id}")
     @GET
+    @Path("/{id}")
     public Response get(@PathParam("id") Long id){
-        return itemService.get();
+        return itemService.get(id);
     }
-
 
 
     @POST
