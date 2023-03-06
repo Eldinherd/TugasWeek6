@@ -6,7 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "item")
@@ -34,10 +34,10 @@ public class Item extends PanacheEntityBase {
     public String description;
 
     @CreationTimestamp
-    @Column(name = "created_at", updatable = false, insertable=false)
-    public Date createdAt;
+    @Column(name = "created_at")
+    public LocalDateTime createdAt;
 
     @UpdateTimestamp
     @Column(name = "updated_at")
-    public java.time.Instant updatedAt;
+    public LocalDateTime updateAt;
 }

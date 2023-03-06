@@ -1,12 +1,14 @@
 package service;
 
 import id.kawahEdukasi.model.Item;
+import net.bytebuddy.asm.Advice;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
 import javax.ws.rs.GET;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -44,7 +46,7 @@ public class ItemService {
             item.price = Double.valueOf(request.get("price").toString());
             item.type = request.get("type").toString();
             item.description = request.get("description").toString();
-
+            item.createdAt = LocalDateTime.now();
             // Save to db
             item.persist();
 
@@ -61,6 +63,7 @@ public class ItemService {
         item.price = Double.valueOf(request.get("price").toString());
         item.type = request.get("type").toString();
         item.description = request.get("description").toString();
+        item.updateAt = LocalDateTime.now();
 
         // Save to db
         item.persist();
