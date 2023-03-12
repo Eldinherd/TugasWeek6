@@ -39,5 +39,5 @@ public class Item extends PanacheEntityBase {
 
     @UpdateTimestamp
     @Column(name = "updated_at")
-    public LocalDateTime updateAt;
+    public LocalDateTime updatedAt;
 }

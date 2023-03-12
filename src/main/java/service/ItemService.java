@@ -63,7 +63,7 @@ public class ItemService {
         item.price = Double.valueOf(request.get("price").toString());
         item.type = request.get("type").toString();
         item.description = request.get("description").toString();
-        item.updateAt = LocalDateTime.now();
+        item.updatedAt = LocalDateTime.now();
 
         // Save to db
         item.persist();
