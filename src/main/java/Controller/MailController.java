@@ -22,7 +22,7 @@ public class MailController {
         mailService.sendEmail(request.get("email").toString());
         return Response.ok(new HashMap<>()).build();
     }
-    @GET
+    @POST
     @Path("/excel")
     public Response sendExcelToEmail(Map<String, Object> request) throws IOException {
         mailService.sendExcelToEmail(request.get("email").toString());
